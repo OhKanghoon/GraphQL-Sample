@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
-        let viewModel = RepoViewModel()
+        let viewModel = RepoViewModel(githubService: GithubService())
         let viewController = RepoViewController(viewModel: viewModel)
         
         let navigationController = UINavigationController(rootViewController: viewController)

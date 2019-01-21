@@ -29,29 +29,26 @@ class VApollo {
     
     func fetch<Query: GraphQLQuery>(query: Query,
                                     cachePolicy: CachePolicy = .returnCacheDataElseFetch,
-                                    queue: DispatchQueue = DispatchQueue.main) -> Single<Query.Data> {
+                                    queue: DispatchQueue = DispatchQueue.main) -> Observable<Query.Data> {
         return self.client.rx
             .fetch(query: query,
                    cachePolicy: cachePolicy,
                    queue: queue)
-            .asSingle()
     }
     
     func watch<Query: GraphQLQuery>(query: Query,
                                     cachePolicy: CachePolicy = .returnCacheDataElseFetch,
-                                    queue: DispatchQueue = DispatchQueue.main) -> Single<Query.Data> {
+                                    queue: DispatchQueue = DispatchQueue.main) -> Observable<Query.Data> {
         return self.client.rx
             .watch(query: query,
                    cachePolicy: cachePolicy,
                    queue: queue)
-            .asSingle()
     }
     
     func perform<Mutation: GraphQLMutation>(mutation: Mutation,
-                                            queue: DispatchQueue = DispatchQueue.main) -> Single<Mutation.Data> {
+                                            queue: DispatchQueue = DispatchQueue.main) -> Observable<Mutation.Data> {
         return self.client.rx
             .perform(mutation: mutation,
                      queue: queue)
-            .asSingle()
     }
 }

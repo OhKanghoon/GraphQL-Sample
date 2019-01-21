@@ -9,12 +9,14 @@
 import Foundation
 import RxSwift
 
-class GithubService {
-    
-    typealias Repository = SearchRepositoriesQuery.Data.Search.Edge.Node.AsRepository
-    
-    static let shared = GithubService()
-    
+typealias Repository = SearchRepositoriesQuery.Data.Search.Edge.Node.AsRepository
+
+protocol GithubServiceType {
+    func searchRepositories(request: SearchRequest) -> Single<List<Repository>>
+}
+
+class GithubService: GithubServiceType {
+        
     func searchRepositories(request: SearchRequest) -> Single<List<Repository>> {
         let query = request.query
         let after = request.after
@@ -25,5 +27,6 @@ class GithubService {
             .map { List<Repository>(query: query,
                                     items: $0.search.edges?.compactMap { $0?.node?.asRepository } ?? [],
                                     after: $0.search.pageInfo.endCursor) }
+            .asSingle()
     }
 }

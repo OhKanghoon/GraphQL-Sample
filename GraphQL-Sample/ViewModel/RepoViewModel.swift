@@ -13,23 +13,18 @@ import RxOptional
 
 class RepoViewModel {
     
-    typealias Repository = SearchRepositoriesQuery.Data.Search.Edge.Node.AsRepository
-    
-    struct Const {
-        static let count = 10
-    }
-    
+    // Input
     let searchRelay = PublishRelay<SearchRequest>()
     
-    let since = BehaviorRelay<String?>(value: nil)
+    // Output
     let repoList = BehaviorRelay<List<Repository>?>(value: nil)
     
     let disposeBag = DisposeBag()
     
-    init() {
+    init(githubService: GithubServiceType) {
         searchRelay
             .distinctUntilChanged()
-            .flatMapLatest { GithubService.shared.searchRepositories(request: $0) }
+            .flatMapLatest { githubService.searchRepositories(request: $0) }
             .scan(nil) { (old, new) -> List<Repository> in
                 guard let old = old,
                     old.query == new.query else { return new }
