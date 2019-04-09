@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08C36F5BBABFE8BCF1DA32B4 /* Pods_GraphQL_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6CFDDA9848A71DBE93DFCE /* Pods_GraphQL_Sample.framework */; };
+		BA660CD6225C691C005DFD2C /* RepoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA660CD5225C691C005DFD2C /* RepoSection.swift */; };
 		BAA3D62521E74AB000E1DE87 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D62421E74AB000E1DE87 /* API.swift */; };
 		BAA3D62821E8370E00E1DE87 /* VApollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D62721E8370E00E1DE87 /* VApollo.swift */; };
 		BAA3D62B21E8606200E1DE87 /* SearchBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D62A21E8606200E1DE87 /* SearchBarNode.swift */; };
@@ -15,7 +16,6 @@
 		BAA3D63121EC23D800E1DE87 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D63021EC23D800E1DE87 /* SearchRequest.swift */; };
 		BAA3D63321EC2E6D00E1DE87 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D63221EC2E6D00E1DE87 /* GithubService.swift */; };
 		BAA3D63521EC347800E1DE87 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D63421EC347800E1DE87 /* List.swift */; };
-		BAA3D64121EC7BDB00E1DE87 /* ApolloClient+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA3D64021EC7BDB00E1DE87 /* ApolloClient+Rx.swift */; };
 		BAC36A2221E709710092D94A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC36A2121E709710092D94A /* AppDelegate.swift */; };
 		BAC36A2921E709730092D94A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC36A2821E709730092D94A /* Assets.xcassets */; };
 		BAC36A2C21E709730092D94A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC36A2A21E709730092D94A /* LaunchScreen.storyboard */; };
@@ -28,6 +28,7 @@
 /* Begin PBXFileReference section */
 		403C3B1512D627F5A8FC1136 /* Pods-GraphQL-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL-Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphQL-Sample/Pods-GraphQL-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		4C6CFDDA9848A71DBE93DFCE /* Pods_GraphQL_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQL_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA660CD5225C691C005DFD2C /* RepoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSection.swift; sourceTree = "<group>"; };
 		BAA3D62421E74AB000E1DE87 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BAA3D62721E8370E00E1DE87 /* VApollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VApollo.swift; sourceTree = "<group>"; };
 		BAA3D62A21E8606200E1DE87 /* SearchBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNode.swift; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		BAA3D63021EC23D800E1DE87 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
 		BAA3D63221EC2E6D00E1DE87 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		BAA3D63421EC347800E1DE87 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
-		BAA3D64021EC7BDB00E1DE87 /* ApolloClient+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Rx.swift"; sourceTree = "<group>"; };
 		BAC36A1E21E709710092D94A /* GraphQL-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphQL-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC36A2121E709710092D94A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAC36A2821E709730092D94A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,13 +77,47 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BA660CD1225C619D005DFD2C /* Apollo */ = {
+			isa = PBXGroup;
+			children = (
+				BAA3D62721E8370E00E1DE87 /* VApollo.swift */,
+				BAA3D62421E74AB000E1DE87 /* API.swift */,
+			);
+			path = Apollo;
+			sourceTree = "<group>";
+		};
+		BA660CD2225C61D7005DFD2C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BA660CD3225C61E2005DFD2C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BAA3D63221EC2E6D00E1DE87 /* GithubService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BA660CD4225C690E005DFD2C /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				BAC36A3521E71BB40092D94A /* RepoViewController.swift */,
+				BAC36A3721E71BBB0092D94A /* RepoViewModel.swift */,
+				BAC36A3921E71E510092D94A /* RepoCellNode.swift */,
+				BA660CD5225C691C005DFD2C /* RepoSection.swift */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
 		BAA3D62621E836FC00E1DE87 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BA660CD1225C619D005DFD2C /* Apollo */,
 				BAA3D62C21E8660800E1DE87 /* GraphQL */,
-				BAA3D62721E8370E00E1DE87 /* VApollo.swift */,
-				BAA3D63221EC2E6D00E1DE87 /* GithubService.swift */,
-				BAA3D64021EC7BDB00E1DE87 /* ApolloClient+Rx.swift */,
+				BA660CD3225C61E2005DFD2C /* Service */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -144,10 +178,9 @@
 		BAC36A2021E709710092D94A /* GraphQL-Sample */ = {
 			isa = PBXGroup;
 			children = (
-				BAA3D62421E74AB000E1DE87 /* API.swift */,
+				BA660CD2225C61D7005DFD2C /* Service */,
 				BAC36A2121E709710092D94A /* AppDelegate.swift */,
-				BAC36A3321E71BA00092D94A /* ViewController */,
-				BAC36A3421E71BA50092D94A /* ViewModel */,
+				BAC36A3321E71BA00092D94A /* Module */,
 				BAA3D62621E836FC00E1DE87 /* Network */,
 				BAA3D62921E8605200E1DE87 /* View */,
 				BAA3D62F21EC23C800E1DE87 /* Type */,
@@ -157,21 +190,12 @@
 			path = "GraphQL-Sample";
 			sourceTree = "<group>";
 		};
-		BAC36A3321E71BA00092D94A /* ViewController */ = {
+		BAC36A3321E71BA00092D94A /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				BAC36A3521E71BB40092D94A /* RepoViewController.swift */,
-				BAC36A3921E71E510092D94A /* RepoCellNode.swift */,
+				BA660CD4225C690E005DFD2C /* Repo */,
 			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		BAC36A3421E71BA50092D94A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BAC36A3721E71BBB0092D94A /* RepoViewModel.swift */,
-			);
-			path = ViewModel;
+			path = Module;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,14 +301,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GraphQL-Sample/Pods-GraphQL-Sample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
+				"${BUILT_PRODUCTS_DIR}/RxApolloClient/RxApolloClient.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources-Texture/RxDataSources_Texture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -292,14 +318,16 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxApolloClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources_Texture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,12 +365,12 @@
 				BAC36A3821E71BBB0092D94A /* RepoViewModel.swift in Sources */,
 				BAA3D62821E8370E00E1DE87 /* VApollo.swift in Sources */,
 				BAA3D63521EC347800E1DE87 /* List.swift in Sources */,
-				BAA3D64121EC7BDB00E1DE87 /* ApolloClient+Rx.swift in Sources */,
 				BAC36A3A21E71E510092D94A /* RepoCellNode.swift in Sources */,
 				BAC36A2221E709710092D94A /* AppDelegate.swift in Sources */,
 				BAA3D63321EC2E6D00E1DE87 /* GithubService.swift in Sources */,
 				BAA3D63121EC23D800E1DE87 /* SearchRequest.swift in Sources */,
 				BAC36A3621E71BB40092D94A /* RepoViewController.swift in Sources */,
+				BA660CD6225C691C005DFD2C /* RepoSection.swift in Sources */,
 				BAA3D62521E74AB000E1DE87 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

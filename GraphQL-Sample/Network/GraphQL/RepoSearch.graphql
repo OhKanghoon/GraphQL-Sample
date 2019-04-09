@@ -3,6 +3,7 @@ query SearchRepositories($query: String!, $first: Int!, $after: String){
         edges {
             node {
                 ... on Repository {
+                    id
                     name
                     owner {
                         avatarUrl

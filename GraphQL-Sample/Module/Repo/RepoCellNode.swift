@@ -16,12 +16,19 @@ final class RepoCellNode: ASCellNode {
     struct Const {
         static let imageSize: CGSize = .init(width: 60, height: 60)
         static let spacing: CGFloat = 8
+        static let placeholderColor: UIColor = .init(red: 233.0 / 255.0,
+                                                     green: 237.0 / 255.0,
+                                                     blue: 240.0 / 255.0,
+                                                     alpha: 1.0)
     }
     
     lazy var imageNode: ASNetworkImageNode = {
         let node = ASNetworkImageNode()
         node.style.preferredSize = Const.imageSize
         node.shouldCacheImage = true
+        node.placeholderEnabled = true
+        node.placeholderFadeDuration = 0.3
+        node.placeholderColor = Const.placeholderColor
         return node
     }()
     
@@ -53,4 +60,3 @@ final class RepoCellNode: ASCellNode {
         return ASInsetLayoutSpec(insets: .zero, child: contentStackSpec)
     }
 }
-

@@ -2,6 +2,7 @@ PODS:
   - Apollo (0.9.4):
     - Apollo/Core (= 0.9.4)
   - Apollo/Core (0.9.4)
+  - Differentiator (3.1.0)
   - PINCache (3.0.1-beta.6):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
     - PINCache/Core (= 3.0.1-beta.6)
@@ -17,15 +18,22 @@ PODS:
   - PINRemoteImage/PINCache (3.0.0-beta.13):
     - PINCache (= 3.0.1-beta.6)
     - PINRemoteImage/Core
+  - RxApolloClient (0.1.0):
+    - Apollo (~> 0.9.4)
+    - RxSwift (~> 4.0)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
+  - RxDataSources-Texture (1.0.1):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+    - Texture (~> 2.7)
   - RxOptional (3.6.2):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
-  - SnapKit (4.2.0)
   - Texture (2.7):
     - Texture/AssetsLibrary (= 2.7)
     - Texture/MapKit (= 2.7)
@@ -45,23 +53,26 @@ PODS:
 
 DEPENDENCIES:
   - Apollo (~> 0.9.4)
+  - RxApolloClient
   - RxCocoa (~> 4.4.0)
+  - RxDataSources-Texture
   - RxOptional (~> 3.6.2)
   - RxSwift (~> 4.4.0)
-  - SnapKit (~> 4.2.0)
   - Texture (from `https://github.com/TextureGroup/Texture.git`, branch `p6.74`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Apollo
+    - Differentiator
     - PINCache
     - PINOperation
     - PINRemoteImage
+    - RxApolloClient
     - RxAtomic
     - RxCocoa
+    - RxDataSources-Texture
     - RxOptional
     - RxSwift
-    - SnapKit
 
 EXTERNAL SOURCES:
   Texture:
@@ -75,16 +86,18 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Apollo: 450856adbdebcdf28c3c671f81732ac3f9944065
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
+  RxApolloClient: 33a9b145c6990d77bd240ff3b1395b6115ecb82c
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxDataSources-Texture: 7e173aad29fcdcfcb4e3296ee91e4d915d0d939d
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Texture: 2ece6464e0cb29e2acbdbcf3bd5cc2c1983ecda7
 
-PODFILE CHECKSUM: ee822650d3b0367d1209da962b758c1976074685
+PODFILE CHECKSUM: 6b7eedc26170e920f6100ebc629f6ed21321e879
 
 COCOAPODS: 1.5.3

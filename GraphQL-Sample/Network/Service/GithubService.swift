@@ -22,7 +22,7 @@ class GithubService: GithubServiceType {
         let after = request.after
         return VApollo.shared
             .fetch(query: SearchRepositoriesQuery(query: query,
-                                                  first: 10,
+                                                  first: 20,
                                                   after: after))
             .map { List<Repository>(query: query,
                                     items: $0.search.edges?.compactMap { $0?.node?.asRepository } ?? [],

@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import Apollo
+import RxApolloClient
 
 class VApollo {
     
@@ -19,7 +20,7 @@ class VApollo {
     init() {
         let configuration: URLSessionConfiguration = .default
         // TODO: Add your token
-        configuration.httpAdditionalHeaders = ["Authorization": ""]
+//        configuration.httpAdditionalHeaders = ["Authorization": ""]
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         
         let url = URL(string: "https://api.github.com/graphql")!

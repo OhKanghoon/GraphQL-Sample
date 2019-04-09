@@ -17,6 +17,7 @@ class RepoViewModel {
     let searchRelay = PublishRelay<SearchRequest>()
     
     // Output
+    let sections = BehaviorRelay<[RepoSection]?>(value: nil)
     let repoList = BehaviorRelay<List<Repository>?>(value: nil)
     
     let disposeBag = DisposeBag()
@@ -24,7 +25,9 @@ class RepoViewModel {
     init(githubService: GithubServiceType) {
         searchRelay
             .distinctUntilChanged()
-            .flatMapLatest { githubService.searchRepositories(request: $0) }
+            .flatMapLatest { githubService.searchRepositories(request: $0)
+                .catchError { _ in return .never() }
+            }
             .scan(nil) { (old, new) -> List<Repository> in
                 guard let old = old,
                     old.query == new.query else { return new }
@@ -33,6 +36,12 @@ class RepoViewModel {
                              after: new.after)
             }
             .bind(to: repoList)
+            .disposed(by: disposeBag)
+        
+        repoList.filterNil()
+            .map { $0.items.map(RepoSectionItem.repo) }
+            .map { [RepoSection.repo($0)] }
+            .bind(to: sections)
             .disposed(by: disposeBag)
     }
 }

@@ -4,7 +4,7 @@ import Apollo
 
 public final class SearchRepositoriesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query SearchRepositories($query: String!, $first: Int!, $after: String) {\n  search(query: $query, type: REPOSITORY, first: $first, after: $after) {\n    __typename\n    edges {\n      __typename\n      node {\n        __typename\n        ... on Repository {\n          name\n          owner {\n            __typename\n            avatarUrl\n            login\n          }\n        }\n      }\n    }\n    pageInfo {\n      __typename\n      endCursor\n      hasNextPage\n    }\n  }\n}"
+    "query SearchRepositories($query: String!, $first: Int!, $after: String) {\n  search(query: $query, type: REPOSITORY, first: $first, after: $after) {\n    __typename\n    edges {\n      __typename\n      node {\n        __typename\n        ... on Repository {\n          id\n          name\n          owner {\n            __typename\n            avatarUrl\n            login\n          }\n        }\n      }\n    }\n    pageInfo {\n      __typename\n      endCursor\n      hasNextPage\n    }\n  }\n}"
 
   public var query: String
   public var first: Int
@@ -170,8 +170,8 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
             return Node(unsafeResultMap: ["__typename": "MarketplaceListing"])
           }
 
-          public static func makeRepository(name: String, owner: AsRepository.Owner) -> Node {
-            return Node(unsafeResultMap: ["__typename": "Repository", "name": name, "owner": owner.resultMap])
+          public static func makeRepository(id: GraphQLID, name: String, owner: AsRepository.Owner) -> Node {
+            return Node(unsafeResultMap: ["__typename": "Repository", "id": id, "name": name, "owner": owner.resultMap])
           }
 
           public var __typename: String {
@@ -199,6 +199,7 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
 
             public static let selections: [GraphQLSelection] = [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
               GraphQLField("name", type: .nonNull(.scalar(String.self))),
               GraphQLField("owner", type: .nonNull(.object(Owner.selections))),
             ]
@@ -209,8 +210,8 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
               self.resultMap = unsafeResultMap
             }
 
-            public init(name: String, owner: Owner) {
-              self.init(unsafeResultMap: ["__typename": "Repository", "name": name, "owner": owner.resultMap])
+            public init(id: GraphQLID, name: String, owner: Owner) {
+              self.init(unsafeResultMap: ["__typename": "Repository", "id": id, "name": name, "owner": owner.resultMap])
             }
 
             public var __typename: String {
@@ -219,6 +220,15 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
               }
               set {
                 resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var id: GraphQLID {
+              get {
+                return resultMap["id"]! as! GraphQLID
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "id")
               }
             }
 
